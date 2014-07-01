@@ -1,7 +1,7 @@
 {
   "name": "flow-quantiles",
   "version": "0.0.0",
-  "description": "Reduce transform stream which calculates the quantiles over streamed data.",
+  "description": "Reduce transform stream which calculates quantiles over streamed data.",
   "author": {
     "name": "Athan Reines",
     "email": "athan@nodeprime.com"
