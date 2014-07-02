@@ -16,32 +16,26 @@ $ npm install flow-quantiles
 ## Examples
 
 ``` javascript
-var // Flow quantiles stream generator:
+var eventStream = require( 'event-stream' ),
 	qStream = require( 'flow-quantiles' );
 
-var data = new Array( 1000 ),
-	stream;
-
 // Create some data...
-for ( var i = 0; i < 1000; i++ ) {
+var data = new Array( 1000 );
+for ( var i = 0; i < data.length; i++ ) {
 	data[ i ] = Math.round( Math.random() * 100 );
 }
 
+// Create a readable stream:
+var readStream = eventStream.readArray( data );
+
 // Create a new stream:
-stream = qStream()
+var stream = qStream()
 	.quantiles( 10 )
 	.stream();
 
-// Add a listener:
-stream.on( 'data', function( quantiles ) {
-	console.log( 'Quantiles: ' + JSON.stringify( quantiles ) );
-});
-
-// Write the data to the stream...
-for ( var j = 0; j < data.length; j++ ) {
-	stream.write( data[ j ] );
-}
-stream.end();
+// Pipe the data:
+readStream.pipe( stream )
+	.pipe( process.stdout );
 ```
 
 ## Tests
