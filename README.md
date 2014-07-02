@@ -28,13 +28,14 @@ for ( var i = 0; i < data.length; i++ ) {
 // Create a readable stream:
 var readStream = eventStream.readArray( data );
 
-// Create a new stream:
+// Create a new quantiles stream:
 var stream = qStream()
 	.quantiles( 10 )
 	.stream();
 
 // Pipe the data:
 readStream.pipe( stream )
+	.pipe( eventStream.stringify() )
 	.pipe( process.stdout );
 ```
 
