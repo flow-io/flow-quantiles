@@ -18,7 +18,7 @@
   "main": "./lib",
   "repository": {
     "type": "git",
-    "url": "git://github.com/kgryte/flow-quantiles.git"
+    "url": "git://github.com/flow-io/flow-quantiles.git"
   },
   "keywords": [
     "stream",
@@ -33,7 +33,7 @@
     "stats"
   ],
   "bugs": {
-    "url": "https://github.com/kgryte/flow-quantiles/issues"
+    "url": "https://github.com/flow-io/flow-quantiles/issues"
   },
   "dependencies": {
     "event-stream": "~3.1.5",
